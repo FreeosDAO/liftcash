@@ -1,7 +1,6 @@
 import "./TransferPage.css";
 import DashBoardHead from "../../components/dashboardHead/DashBoardHead";
 // import React, { useState } from "react";
-import bgimg from "../../assets/images/background.svg";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 

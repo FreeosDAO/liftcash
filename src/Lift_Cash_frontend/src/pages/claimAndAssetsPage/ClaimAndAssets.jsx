@@ -160,12 +160,12 @@ const ClaimAndAssets = () => {
 
           <div className="flex justify-between items-center text-center mb-8 mt-4">
             <div className="w-1/2 flex-wrap flex-col items-start flex">
-              <p className="text-xs">Iteration</p>
-              <p className="text-xl font-semibold">{weekCount}</p>
+              <p className="text-xs text-text-secondary">Iteration</p>
+              <p className="text-xl font-semibold text-text-primary">{weekCount}</p>
             </div>
             <div className="w-1/3 flex flex-col items-end flex-wrap">
-              <p className="text-xs">Next Claim</p>
-              <p className="text-lg font-semibold">{formattedTimeLeft}</p>
+              <p className="text-xs text-text-secondary">Next Claim</p>
+              <p className="text-lg font-semibold text-text-primary">{formattedTimeLeft}</p>
             </div>
           </div>
         </div>
@@ -176,15 +176,15 @@ const ClaimAndAssets = () => {
           <h2 className="locked-header">
             Locked <span>PROMO</span> :
           </h2>
-          <p className="text-xl text-dark-grey font-medium sm:font-semibold">
+          <p className="text-xl text-text-primary font-medium sm:font-semibold">
             {userRecord.locked_promo}
           </p>
         </div>
 
-        <p className="text-xs ">
+        <p className="text-xs text-text-secondary">
           For more info on Locked PROMO{" "}
           <span
-            className="text-blue-violet underline"
+            className="text-primary underline"
             onClick={() => window.open("/", "_blank")}
           >
             click here

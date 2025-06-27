@@ -1,15 +1,15 @@
 /* TransferPage.css */
 
 .page-container {
-  @apply min-h-screen    flex flex-col items-center p-5;
+  @apply min-h-screen flex flex-col items-center p-5 bg-bg-primary text-text-primary;
 }
 
 .card-container {
-  @apply shadow-md rounded-lg  mt-6 py-6 border-primary w-full max-w-lg mx-auto text-center;
+  @apply shadow-md rounded-lg mt-6 py-6 border-primary w-full max-w-lg mx-auto text-center bg-card-bg;
 }
 
 .balance-title {
-  @apply text-base font-bold text-cyan mt-5 mb-2;
+  @apply text-base font-bold text-primary mt-5 mb-2;
 }
 
 .balanceContainer {
@@ -17,15 +17,15 @@
 }
 
 .balance-item {
-  @apply bg-light-grey rounded-md p-1 w-[40%] mb-6;
+  @apply bg-bg-secondary rounded-md p-1 w-[40%] mb-6;
 }
 
 .balance-amount {
-  @apply text-base font-medium text-dark-grey;
+  @apply text-base font-medium text-text-primary;
 }
 
 .balance-label {
-  @apply text-sm text-cyan font-semibold;
+  @apply text-sm text-primary font-semibold;
 }
 
 /* .tabs-container {
@@ -57,29 +57,29 @@
 }
 
 .info-text {
-  @apply text-sm text-dark-grey mb-5;
+  @apply text-sm text-text-secondary mb-5;
 }
 
 .balance-info {
-  @apply text-sm text-dark-grey;
+  @apply text-sm text-text-secondary;
 }
 
 .receive-tokens-container {
-  @apply bg-white rounded-lg mt-6 p-6 w-full max-w-md mx-auto text-center border-2 border-primary;
+  @apply bg-card-bg rounded-lg mt-6 p-6 w-full max-w-md mx-auto text-center border-2 border-primary;
 }
 
 .receive-title {
-  @apply text-3xl text-black font-semibold mb-2;
+  @apply text-3xl text-text-primary font-semibold mb-2 font-heading;
 }
 
 .receive-info-text {
-  @apply text-xs text-dark-grey;
+  @apply text-xs text-text-secondary;
 }
 
 .receive-username {
-  @apply text-2xl text-[#222222] font-semibold py-6;
+  @apply text-2xl text-text-primary font-semibold py-6;
 }
 
 .need-tokens-button {
-  @apply border-2 border-cyan font-medium text-cyan py-2 px-6 rounded-lg w-full hover:bg-coral hover:border-coral hover:text-white transition duration-300;
+  @apply border-2 border-primary font-medium text-primary py-2 px-6 rounded-lg w-full hover:bg-accent-hover hover:border-accent-hover hover:text-white transition duration-300;
 }

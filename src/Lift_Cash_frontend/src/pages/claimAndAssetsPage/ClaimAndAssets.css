@@ -1,9 +1,9 @@
 .claim-assets-container {
-  @apply min-h-screen  font-sans flex flex-col items-center p-5;
+  @apply min-h-screen font-sans flex flex-col items-center p-5 bg-bg-primary text-text-primary;
 }
 
 .card-container {
-  @apply mt-6 pt-6 w-full max-w-md mx-auto bg-white rounded-lg border-2 border-primary;
+  @apply mt-6 pt-6 w-full max-w-md mx-auto bg-card-bg rounded-lg border-2 border-primary;
 }
 
 .asset-row {
@@ -11,23 +11,23 @@
 }
 
 .asset-label {
-  @apply text-xs text-dark-grey;
+  @apply text-xs text-text-secondary;
 }
 
 .asset-amount {
-  @apply text-xl font-bold;
+  @apply text-xl font-bold text-text-primary;
 }
 
 .mint-button-container {
-  @apply text-gray-500 hover:text-gray-800 cursor-pointer;
+  @apply text-text-secondary hover:text-text-primary cursor-pointer;
 }
 
 .disabled-claim-button {
-  @apply absolute -top-[50px] left-[35%] z-10 text-gray-500 bg-gray-200 rounded-full w-[120px] h-[120px] flex flex-col justify-center items-center;
+  @apply absolute -top-[50px] left-[35%] z-10 text-text-secondary bg-border-color rounded-full w-[120px] h-[120px] flex flex-col justify-center items-center;
 }
 
 .enabled-claim-button {
-  @apply absolute -top-[50px] left-[35%] z-10 text-light-grey bg-coral rounded-full w-[120px] h-[120px] flex flex-col justify-center items-center;
+  @apply absolute -top-[50px] left-[35%] z-10 text-white bg-primary rounded-full w-[120px] h-[120px] flex flex-col justify-center items-center;
 }
 
 /* .enabled-claim-button:hover {
@@ -43,25 +43,25 @@
 }
 
 .claim-box {
-  @apply relative bg-white rounded-xl p-4 border-t-2 border-primary;
+  @apply relative bg-card-bg rounded-xl p-4 border-t-2 border-primary;
 }
 
 .locked-section {
-  @apply w-full max-w-md mx-auto mt-6 p-6 pb-8 bg-white rounded-lg border-2 border-primary;
+  @apply w-full max-w-md mx-auto mt-6 p-6 pb-8 bg-card-bg rounded-lg border-2 border-primary;
 }
 
 .locked-header {
-  @apply text-lg sm:text-xl text-dark-grey font-semibold;
+  @apply text-lg sm:text-xl text-text-primary font-semibold font-heading;
 }
 
 .unlock-info {
-  @apply border-2 text-cyan hover:bg-coral hover:border-coral hover:text-white border-cyan rounded-lg py-3 px-6 text-center mt-6;
+  @apply border-2 text-primary hover:bg-accent-hover hover:border-accent-hover hover:text-white border-primary rounded-lg py-3 px-6 text-center mt-6;
 }
 
 .unlock-percentage {
-  @apply text-xl  font-bold ;
+  @apply text-xl font-bold text-text-primary;
 }
 
 .info-text {
-  @apply text-xs mt-3 mb-4  text-gray-800;
+  @apply text-xs mt-3 mb-4 text-text-secondary;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./ThankYouCard.css";
-import shape6 from "../../assets/images/shape-6.svg";
 import { useNavigate } from "react-router-dom";
 import useFormattedTimeLeft from "../../hooks/useFormattedTimeLeft";
 import useConvertToMinutes from "../../hooks/ useConvertToMinutes";
@@ -62,7 +61,6 @@ const ThankYouCard = ({ remainingTime, type, onTimeUp }) => {
       <p className="thank-you-card-p-top">{texts.participation}</p>
       <h2 className="thank-you-card-h2">You have a 'CLAIM' waiting</h2>
       <div className="thank-you-card-image-container">
-        <img src={shape6} alt="Thank You" className="thank-you-card-image" />
         <div className="thank-you-card-btn-container">
           <button
             className="thank-you-card-btn "

@@ -9,7 +9,7 @@
 }
 
 .enabled {
-  @apply bg-[#75CCF5];
+  @apply bg-primary;
 }
 
 .disabled {
@@ -21,7 +21,7 @@
 }
 
 .knob-enabled {
-  @apply bg-[#00A1ED];
+  @apply bg-accent-hover;
 }
 
 .knob-disabled {
@@ -29,19 +29,19 @@
 }
 
 .bgknob-enabled {
-  @apply bg-[#E0F4FD] translate-x-6;
+  @apply bg-bg-secondary translate-x-6;
 }
 
 .bgknob-disabled {
-  @apply bg-[#E4E4E4] translate-x-0;
+  @apply bg-border-color translate-x-0;
 }
 
 .knob-disabled:hover::before {
   content: "";
-  @apply absolute -top-2 -left-2 w-9 h-9 rounded-full bg-[#E4E4E4] opacity-50 transition-opacity duration-300;
+  @apply absolute -top-2 -left-2 w-9 h-9 rounded-full bg-border-color opacity-50 transition-opacity duration-300;
 }
 
 .knob-enabled:hover::before {
   content: "";
-  @apply absolute -top-2 -left-2 w-9 h-9 rounded-full bg-[#E0F4FD] opacity-50 transition-opacity duration-300;
+  @apply absolute -top-2 -left-2 w-9 h-9 rounded-full bg-bg-secondary opacity-50 transition-opacity duration-300;
 }

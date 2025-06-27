@@ -16,21 +16,16 @@
 //   plugins: [],
 // };
 
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
 
-module.exports = {
+export default {
+  darkMode: 'class',
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          '"DM Sans Merlin"',
-          "system-ui",
-          "-apple-system",
-          "Ubuntu",
-          "sans-serif",
-          // "font-inter",
-        ],
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
       },
       fontSize: {
         base: ["16px", "1.5"],
@@ -48,22 +43,42 @@ module.exports = {
         bold: 700,
       },
       colors: {
-        primary: "#479fe6",
-        secondary: "#111827",
-        cyan: "#01ACC9",
-        coral: "#FF7E79",
-        "orange-red": "#FF4500",
+        primary: "var(--accent-primary)",
+        secondary: "var(--bg-secondary)",
+        accent: "var(--accent-primary)",
+        "accent-hover": "var(--accent-hover)",
+        "bg-primary": "var(--bg-primary)",
+        "bg-secondary": "var(--bg-secondary)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "card-bg": "var(--card-bg)",
+        "border-color": "var(--border-color)",
+        "input-bg": "var(--input-bg)",
+        "input-border": "var(--input-border)",
+        "input-focus": "var(--input-focus)",
+        "shadow-color": "var(--shadow-color)",
+        // Legacy colors mapped to new theme
+        cyan: "var(--accent-primary)",
+        coral: "var(--accent-hover)",
+        "orange-red": "var(--accent-primary)",
         gold: "#FFD700",
-        "blue-violet": "#8A2BE2",
+        "blue-violet": "var(--accent-primary)",
+        "light-grey": "var(--border-color)",
+        "dark-grey": "var(--bg-secondary)",
+        "very-light-grey": "#fafafa",
+        "medium-grey": "var(--text-secondary)",
+        "muted-grey": "var(--card-bg)",
+        "transparent-white": "#ffffff0d",
         black: "#000000",
         white: "#FFFFFF",
-        "transparent-white": "#ffffff0d",
-        "light-grey": "#e5e7eb",
-        "dark-grey": "#27272a",
-        "very-light-grey": "#fafafa",
-        "medium-grey": "#71717a",
-        "muted-grey": "#f4f4f5",
       },
+    },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
   },
   plugins: [],

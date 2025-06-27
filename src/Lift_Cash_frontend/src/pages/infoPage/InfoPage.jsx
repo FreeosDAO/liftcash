@@ -1,5 +1,4 @@
 import "./InfoPage.css";
-import bgimg from "../../assets/images/background.svg";
 
 const InfoPage = () => {
   return (

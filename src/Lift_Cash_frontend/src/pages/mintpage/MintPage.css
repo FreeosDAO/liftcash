@@ -1,14 +1,14 @@
 
 .page-container {
-    @apply min-h-screen  pb-8 flex flex-col items-center;
+    @apply min-h-screen pb-8 flex flex-col items-center bg-bg-primary text-text-primary;
   }
   
   .card-container {
-    @apply mt-6 pt-2 w-full max-w-md mx-auto bg-white rounded-lg border-2 border-[#00A1ED];
+    @apply mt-6 pt-2 w-full max-w-md mx-auto bg-card-bg rounded-lg border-2 border-primary;
   }
   
   .heading-title {
-    @apply text-3xl font-semibold p-4 text-[#222222] mb-4 text-center;
+    @apply text-3xl font-semibold p-4 text-text-primary mb-4 text-center font-heading;
   }
 
   .tabs-container {
@@ -20,14 +20,14 @@
   }
   
   .active-tab {
-    @apply bg-[#CCCCCC] border-blue-500 border-b-0 border-r-0 mt-3 text-gray-800;
+    @apply bg-bg-secondary border-primary border-b-0 border-r-0 mt-3 text-text-primary;
   }
   
   .inactive-tab {
-    @apply text-black py-4 border-2 border-b-0 border-blue-500;
+    @apply text-text-secondary py-4 border-2 border-b-0 border-primary;
   }
   
   .divider {
-    @apply h-px bg-black;
+    @apply h-px bg-border-color;
   }
   

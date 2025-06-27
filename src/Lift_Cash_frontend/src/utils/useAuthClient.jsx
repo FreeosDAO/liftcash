@@ -3,8 +3,21 @@ import { clearActors, setActors } from "./redux/actorsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthClient } from "@dfinity/auth-client";
 import { HttpAgent } from "@dfinity/agent";
-import { createActor as createCommunityActor } from "../../../declarations/Community_Backend";
-import { createActor as createEconomyActor } from "../../../declarations/Economy_Backend";
+
+// Static demo mode flag
+const DEMO_MODE = true; // Set to false when backend is available
+
+// Mock backend actors for demo mode
+const createMockActor = () => ({
+  // Add mock methods as needed for demo
+  getUserInfo: () => Promise.resolve({ id: "demo-user", name: "Demo User" }),
+  getBalance: () => Promise.resolve(1000),
+  // Add more mock methods as needed
+});
+
+// Mock backend actors for production use
+const createCommunityActor = DEMO_MODE ? createMockActor : null;
+const createEconomyActor = DEMO_MODE ? createMockActor : null;
 
 const AuthContext = createContext();
 
@@ -17,6 +30,27 @@ export const useAuthClient = () => {
   const [principal, setPrincipal] = useState(null);
 
   const clientInfo = async (client) => {
+    if (DEMO_MODE) {
+      // Demo mode - simulate authenticated user
+      console.log("Demo mode: Simulating authenticated user");
+      setAuthClient({ isAuthenticated: () => true });
+      setIsAuthenticated(true);
+      setIdentity({ getPrincipal: () => ({ toText: () => "demo-principal", isAnonymous: () => false }) });
+      setPrincipal({ toText: () => "demo-principal", isAnonymous: () => false });
+
+      // Set mock actors
+      dispatch(
+        setActors({
+          communityActor: createMockActor(),
+          economyActor: createMockActor(),
+        })
+      );
+      
+      localStorage.setItem("userPrincipal", "demo-principal");
+      return true;
+    }
+
+    // Normal mode with real backend
     console.log("client auth status : ", await client.isAuthenticated());
     console.log("client : ", await client);
     const authStatus = await client.isAuthenticated();
@@ -62,14 +96,26 @@ export const useAuthClient = () => {
 
   useEffect(() => {
     (async () => {
-      const authClient = await AuthClient.create();
-      clientInfo(authClient);
+      if (DEMO_MODE) {
+        // In demo mode, skip AuthClient creation
+        clientInfo(null);
+      } else {
+        const authClient = await AuthClient.create();
+        clientInfo(authClient);
+      }
     })();
   }, []);
 
   const login = async () => {
     return new Promise(async (resolve, reject) => {
       try {
+        if (DEMO_MODE) {
+          // In demo mode, simulate login
+          console.log("Demo mode: Simulating login");
+          resolve(clientInfo(null));
+          return;
+        }
+
         if (
           authClient !== null &&
           authClient.isAuthenticated() &&
@@ -94,6 +140,14 @@ export const useAuthClient = () => {
   };
 
   const logout = async () => {
+    if (DEMO_MODE) {
+      console.log("Demo mode: Simulating logout");
+      localStorage.clear();
+      dispatch(clearActors());
+      setIsAuthenticated(false);
+      return;
+    }
+
     await authClient?.logout();
     localStorage.clear();
     dispatch(clearActors());

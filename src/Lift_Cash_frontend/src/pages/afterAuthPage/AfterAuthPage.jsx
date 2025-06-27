@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import HeaderAfterAuth from "../../components/headerAfterAuth/HeaderAfterAuth";
-import bgimg from "../../assets/images/background.svg";
 // import Waveform from "../../components/threejs/Waveform";
 import FloatingDustWave from "../../components/threejs/FloatingDustWave";
 import { useAuthClient } from "../../utils/useAuthClient";
@@ -22,12 +21,9 @@ const AfterAuthPage = ({ children }) => {
     return (
       <div
         style={{
-          backgroundImage: isAnimationActive ? "" : `url(${bgimg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          backgroundAttachment: "fixed",
+          backgroundColor: "var(--bg-primary)",
         }}
-        className=""
+        className="min-h-screen"
       >
         <HeaderAfterAuth onToggleAnimation={onToggleAnimation} />
         {/* <div className="flex-grow relative flex items-center justify-center overflow-hidden"> */}

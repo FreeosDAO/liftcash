@@ -1,5 +1,5 @@
 .login-main-conatiner {
-  @apply min-h-screen bg-[#d5f2ff] flex flex-col items-center justify-center text-center; 
+  @apply min-h-screen bg-bg-primary flex flex-col items-center justify-center text-center; 
 }
 
 .login-logo-div {
@@ -19,13 +19,13 @@
   @apply mt-4 text-xl text-black font-semibold;
 }
 .login-btn {
-  @apply mt-6 px-20 py-4 bg-white text-primary text-2xl border border-2 border-primary rounded-lg font-bold hover:bg-blue-50;
+  @apply mt-6 px-20 py-4 bg-white text-primary text-2xl border border-2 border-primary rounded-lg font-bold hover:bg-bg-secondary;
 }
 .login-additional-info {
   @apply mt-6 text-gray-500;
 }
 .login-additional-info-link {
-  @apply text-blue-600 underline;
+  @apply text-primary underline;
 }
 
 .login-bottom-img-div {

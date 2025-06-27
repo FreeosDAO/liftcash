@@ -5,7 +5,7 @@
   @apply mt-10 font-bold text-3xl;
 }
 .thank-you-card-p-top {
-  @apply text-center text-base font-medium pt-2 text-cyan;
+  @apply text-center text-base font-medium pt-2 text-primary;
 }
 .thank-you-card-h2 {
   @apply mt-5  w-full pl-10 font-bold text-lg  text-center p-5;
@@ -18,10 +18,10 @@
   @apply w-28 mt-5 mb-5;
 }
 .thank-you-card-btn-container {
-  @apply bg-cyan w-40 h-40 rounded-full flex justify-center items-center hover:shadow-2xl;
+  @apply bg-primary w-40 h-40 rounded-full flex justify-center items-center hover:shadow-2xl;
 }
 .thank-you-card-btn {
-  @apply bg-coral w-36 h-36  border border-white  text-white rounded-full;
+  @apply bg-primary w-36 h-36  border border-white  text-white rounded-full;
 }
 .thank-you-card-btn-span {
   @apply font-semibold  text-center text-2xl;

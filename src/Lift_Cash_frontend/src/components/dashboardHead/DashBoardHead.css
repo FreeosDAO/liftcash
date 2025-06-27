@@ -2,9 +2,9 @@
   @apply mt-2 w-[80px] h-[80px] ;
 }
 .claim-assets-tagline {
-  @apply mt-2  font-light text-base flex justify-center items-center;
+  @apply mt-2 font-light text-base flex justify-center items-center text-text-secondary;
 }
 
 .claim-assets-tagline-icon {
-  @apply text-xl pt-1;
+  @apply text-xl pt-1 text-text-secondary;
 }

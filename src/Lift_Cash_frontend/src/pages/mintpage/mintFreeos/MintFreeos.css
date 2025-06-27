@@ -3,19 +3,19 @@
 }
 
 .main-text {
-  @apply text-sm  text-start text-black p-6;
+  @apply text-sm text-start text-text-primary p-6;
 }
 
 .info-link {
-  @apply text-blue-violet underline;
+  @apply text-primary underline;
 }
 
 .balance-container {
-  @apply bg-white border mx-4 my-2 flex flex-col border-primary rounded-lg p-2 mb-4;
+  @apply bg-card-bg border mx-4 my-2 flex flex-col border-primary rounded-lg p-2 mb-4;
 }
 
 .balance-heading {
-  @apply text-base text-center text-cyan font-medium mb-2;
+  @apply text-base text-center text-primary font-medium mb-2;
 }
 
 .balance-grid {
@@ -23,35 +23,35 @@
 }
 
 .balance-card {
-  @apply bg-light-grey flex flex-col justify-center items-center rounded-md text-sm text-cyan py-1 font-medium;
+  @apply bg-bg-secondary flex flex-col justify-center items-center rounded-md text-sm text-primary py-1 font-medium;
 }
 
 .balance-text {
-  @apply text-lg text-dark-grey;
+  @apply text-lg text-text-primary;
 }
 
 .fee-container {
-  @apply bg-white border mx-4 m-6 border-primary rounded-lg;
+  @apply bg-card-bg border mx-4 m-6 border-primary rounded-lg;
 }
 
 .fee-heading {
-  @apply text-base font-medium text-center text-cyan pt-2 pb-1;
+  @apply text-base font-medium text-center text-primary pt-2 pb-1;
 }
 
 .fee-details {
-  @apply text-sm text-center font-medium text-dark-grey mb-2;
+  @apply text-sm text-center font-medium text-text-secondary mb-2;
 }
 
 .mint-fee-section {
-  @apply bg-light-grey text-center py-2 pb-4 rounded-b-lg;
+  @apply bg-bg-secondary text-center py-2 pb-4 rounded-b-lg;
 }
 
 .mint-fee-title {
-  @apply text-sm text-cyan font-bold mb-2;
+  @apply text-sm text-primary font-bold mb-2;
 }
 
 .mint-fee-values {
-  @apply text-sm text-center font-semibold text-dark-grey;
+  @apply text-sm text-center font-semibold text-text-primary;
 }
 .mint-container {
   @apply mx-2;
