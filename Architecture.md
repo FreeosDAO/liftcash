@@ -119,15 +119,6 @@ C4Context
     Rel_Back(icp, liftcash, "Hosts and executes", "Canister runtime")
     Rel(icp, identity, "Provides identity service", "ICP infrastructure")
     Rel(icp, icrc, "Manages token ledgers", "ICP infrastructure")
-
-    UpdateElementStyle(user, $fontColor="white", $bgColor="#1f2937", $borderColor="#374151")
-    UpdateElementStyle(developer, $fontColor="white", $bgColor="#1f2937", $borderColor="#374151")
-    UpdateElementStyle(frontend, $fontColor="white", $bgColor="#eb5528", $borderColor="#dc2626")
-    UpdateElementStyle(community, $fontColor="white", $bgColor="#eb5528", $borderColor="#dc2626")
-    UpdateElementStyle(economy, $fontColor="white", $bgColor="#eb5528", $borderColor="#dc2626")
-    UpdateElementStyle(identity, $fontColor="white", $bgColor="#059669", $borderColor="#047857")
-    UpdateElementStyle(icp, $fontColor="white", $bgColor="#059669", $borderColor="#047857")
-    UpdateElementStyle(icrc, $fontColor="white", $bgColor="#059669", $borderColor="#047857")
 ```
 
 #### **Component Diagram**
