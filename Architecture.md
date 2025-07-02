@@ -1497,7 +1497,7 @@ flowchart TD
     ClaimCalc --> WeekEnd[Week End Triggered<br/>Automated reward distribution<br/>Cross-canister communication]
     NoReward --> WeekEnd
     
-    WeekEnd --> IndividualReward[Calculate Individual Reward<br/>User Reward = Weekly Issuance * (Claim Percentage / 100)<br/>Reward based on governance-determined issuance]
+    WeekEnd --> IndividualReward[Calculate Individual Reward<br/>User Reward = Weekly Issuance * Claim Percentage divided by 100<br/>Reward based on governance-determined issuance]
     
     %% Token Splitting Mechanism
     IndividualReward --> TokenSplit[Split Reward 50/50<br/>50% locked PROMO<br/>50% unlocked PROMO]
@@ -1555,9 +1555,9 @@ flowchart TD
     DeflatEffect --> NextWeek
     
     %% Economic Metrics and Analytics
-    PoolDeduction --> EconMetrics[Economic Metrics<br/>→ Total tokens distributed<br/>→ Average participation rate<br/>→ Token velocity<br/>→ Burn rate<br/>→ Pool sustainability]
+    PoolDeduction --> EconMetrics[Economic Metrics<br/>- Total tokens distributed<br/>- Average participation rate<br/>- Token velocity<br/>- Burn rate<br/>- Pool sustainability]
     
-    EconMetrics --> EconAnalysis[Economic Analysis<br/>→ Inflation/deflation balance<br/>→ Participation incentives<br/>→ Token value stability<br/>→ Long-term sustainability]
+    EconMetrics --> EconAnalysis[Economic Analysis<br/>- Inflation/deflation balance<br/>- Participation incentives<br/>- Token value stability<br/>- Long-term sustainability]
     
     EconAnalysis --> PolicyAdjust{Policy Adjustment<br/>Needed?}
     PolicyAdjust -->|Yes| GovProposal[Governance Proposal<br/>Community vote on changes<br/>Democratic economics]
