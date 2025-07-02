@@ -1437,18 +1437,18 @@ flowchart TD
     end
 
     %% Cross-stakeholder interactions
-    A9 --> B1 : "Becomes participant"
-    B17 --> C1 : "Check rewards"
-    E7 --> B1 : "Start participating"
-    C16 --> B1 : "Increase participation"
-    D10 --> B1 : "Continue governance"
+    A9 --> B1
+    B17 --> C1
+    E7 --> B1
+    C16 --> B1
+    D10 --> B1
     
     %% System feedback loops
-    B5 --> C2 : "Claim percentage affects rewards"
-    B9 --> C2 : "Claim percentage affects rewards"
-    B13 --> C2 : "Claim percentage affects rewards"
-    C14 --> B1 : "Participation history influences future engagement"
-    F6 --> B1 : "Community metrics influence participation"
+    B5 --> C2
+    B9 --> C2
+    B13 --> C2
+    C14 --> B1
+    F6 --> B1
 
     %% Styling for different stakeholder types
     classDef newUser fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:white
