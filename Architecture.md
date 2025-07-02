@@ -1238,7 +1238,7 @@ flowchart TD
     
     StartDemo --> DemoFeatures[Demo Mode Features<br/>✓ Mock authentication<br/>✓ Simulated canister responses<br/>✓ Local state management<br/>✓ No backend required]
     
-    DemoFeatures --> DemoFlow[Demo Development Flow<br/>→ Edit React components<br/>→ Update styling/CSS<br/>→ Test UI interactions<br/>→ Hot reload instantly]
+    DemoFeatures --> DemoFlow[Demo Development Flow / Edit React components / Update styling/CSS / Test UI interactions / Hot reload instantly]
     
     %% Full Mode Configuration Path
     FullMode --> SetFullFlag[Set DEMO_MODE = false<br/>src/utils/useAuthClient.jsx<br/>Line 8]
@@ -1253,7 +1253,7 @@ flowchart TD
     PullDeps --> DeployScript[Run Deployment Script<br/>cd scripts<br/>chmod +x deploy.sh<br/>./deploy.sh]
     
     DeployScript --> DeployStatus{Deployment<br/>successful?}
-    DeployStatus -->|No| TroubleshootDeploy[Troubleshoot Deployment<br/>→ Check dfx status<br/>→ Verify canister IDs<br/>→ Check network connectivity<br/>→ Review error logs]
+    DeployStatus -->|No| TroubleshootDeploy[Troubleshoot Deployment / Check dfx status / Verify canister IDs / Check network connectivity / Review error logs]
     TroubleshootDeploy --> RetryDeploy{Retry<br/>deployment?}
     RetryDeploy -->|Yes| DeployScript
     RetryDeploy -->|No| FallbackDemo[Fallback to Demo Mode<br/>Set DEMO_MODE = true<br/>Continue with frontend work]
@@ -1264,7 +1264,7 @@ flowchart TD
     
     StartFullDev --> FullFeatures[Full Mode Features<br/>✓ Real Internet Identity auth<br/>✓ Live canister communication<br/>✓ Blockchain state persistence<br/>✓ Cross-canister calls<br/>✓ Token operations]
     
-    FullFeatures --> FullFlow[Full Development Flow<br/>→ Test governance phases<br/>→ Real user participation<br/>→ Token rewards<br/>→ Backend integration]
+    FullFeatures --> FullFlow[Full Development Flow / Test governance phases / Real user participation / Token rewards / Backend integration]
     
     %% Switching Between Modes
     DemoFlow --> SwitchToFull{Need backend<br/>integration?}
@@ -1279,9 +1279,9 @@ flowchart TD
     FullFlow --> RunTests[Run Test Suite<br/>cd scripts<br/>chmod +x Test.sh<br/>./Test.sh]
     RunTests --> TestResults{Tests<br/>passing?}
     TestResults -->|Yes| ReadyForDev[Ready for Development<br/>Backend + Frontend integrated<br/>Real governance testing]
-    TestResults -->|No| DebugTests[Debug Test Failures<br/>→ Check canister logs<br/>→ Verify phase timing<br/>→ Test user creation]
+    TestResults -->|No| DebugTests[Debug Test Failures / Check canister logs / Verify phase timing / Test user creation]
     
-    DebugTests --> FixIssues[Fix Issues<br/>→ Update canister code<br/>→ Redeploy changes<br/>→ Regenerate declarations]
+    DebugTests --> FixIssues[Fix Issues / Update canister code / Redeploy changes / Regenerate declarations]
     FixIssues --> RunTests
     
     %% Production Deployment
@@ -1294,20 +1294,17 @@ flowchart TD
     %% Error Handling and Troubleshooting
     FallbackDemo --> DemoFeatures
     
-    TroubleshootDeploy --> CheckCommon[Common Issues<br/>→ Port conflicts (8000)<br/>→ dfx version compatibility<br/>→ Canister upgrade failures<br/>→ Network connectivity]
+    TroubleshootDeploy --> CheckCommon[Common Issues / Port conflicts (8000) / dfx version compatibility / Canister upgrade failures / Network connectivity]
     
-    CheckCommon --> FixCommon[Solutions<br/>→ dfx stop && dfx start --clean<br/>→ Update dfx version<br/>→ dfx canister delete --all<br/>→ Check internet connection]
+    CheckCommon --> FixCommon[Solutions / dfx stop and start clean / Update dfx version / Delete all canisters / Check internet connection]
     
     FixCommon --> RetryDeploy
     
     %% Environment Variables and Configuration
-    note right of SetDemoFlag : File: src/utils/useAuthClient.jsx<br/>const DEMO_MODE = true;<br/>Controls authentication flow
-    
-    note right of StartReplica : Creates local blockchain<br/>simulator on localhost:8000<br/>Required for canister deployment
-    
-    note right of PullDeps : Downloads Internet Identity<br/>and ICRC-1 ledger canisters<br/>from IC network
-    
-    note right of FullFeatures : Real blockchain integration<br/>Requires stable internet<br/>Higher resource usage
+    %% SetDemoFlag: File src/utils/useAuthClient.jsx, const DEMO_MODE = true, Controls authentication flow
+    %% StartReplica: Creates local blockchain simulator on localhost:8000, Required for canister deployment  
+    %% PullDeps: Downloads Internet Identity and ICRC-1 ledger canisters from IC network
+    %% FullFeatures: Real blockchain integration, Requires stable internet, Higher resource usage
 
     %% Styling
     classDef demoPath fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:white
