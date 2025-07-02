@@ -552,10 +552,10 @@ erDiagram
     WEEKLY_SURVEY_RESULTS ||--|| WEEKLY_VOTE_RESULTS : "survey results feed voting"
     WEEKLY_VOTE_RESULTS ||--|| WEEKLY_RATIFICATION_COUNTS : "vote results feed ratification"
     
-    %% Notes for data flow
-    note for USER_CLAIM "Survey: +20% claim\nVote: +70% claim\nRatify: +10% claim\nMax: 100% per week"
-    note for USER_RECORD "50% locked, 50% unlocked PROMO\n15% unlock per participation"
-    note for PRIZE_POOL "10,000 initial tokens\nWeekly issuance % determined by governance\nDistribution based on participation"
+    %% Notes for data flow:
+    %% USER_CLAIM: Survey: +20 percent claim, Vote: +70 percent claim, Ratify: +10 percent claim, Max: 100 percent per week
+    %% USER_RECORD: 50 percent locked, 50 percent unlocked PROMO, 15 percent unlock per participation
+    %% PRIZE_POOL: 10,000 initial tokens, Weekly issuance percentage determined by governance, Distribution based on participation
 ```
 
 #### **Sequence Diagram: Token Reward Distribution**
@@ -1208,13 +1208,13 @@ classDiagram
     App --> FloatingDustWave : background
     App --> Waveform : background
 
-    %% CSS Dependencies
-    note for Survey "Survey.css"
-    note for Vote "Vote.css"
-    note for DashBoardHead "DashBoardHead.css"
-    note for HeaderAfterAuth "HeaderAfterAuth.css"
-    note for Modal "Modal.css"
-    note for Loading "Loading.jsx (no CSS)"
+    %% CSS Dependencies:
+    %% Survey: Survey.css
+    %% Vote: Vote.css
+    %% DashBoardHead: DashBoardHead.css
+    %% HeaderAfterAuth: HeaderAfterAuth.css
+    %% Modal: Modal.css
+    %% Loading: Loading.jsx (no CSS)
 ```
 
 #### **Flowchart: Development Mode Configuration**
