@@ -1294,9 +1294,9 @@ flowchart TD
     %% Error Handling and Troubleshooting
     FallbackDemo --> DemoFeatures
     
-    TroubleshootDeploy --> CheckCommon[Common Issues / Port conflicts (8000) / dfx version compatibility / Canister upgrade failures / Network connectivity]
+    TroubleshootDeploy --> CheckCommon[Common Issues - Port conflicts on 8000 - dfx version compatibility - Canister upgrade failures - Network connectivity]
     
-    CheckCommon --> FixCommon[Solutions / dfx stop and start clean / Update dfx version / Delete all canisters / Check internet connection]
+    CheckCommon --> FixCommon[Solutions - dfx stop and start clean - Update dfx version - Delete all canisters - Check internet connection]
     
     FixCommon --> RetryDeploy
     
