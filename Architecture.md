@@ -90,35 +90,42 @@ Based on the system architecture analysis, the following Mermaid diagrams would 
 - **Audience**: Executive stakeholders, product managers, system architects
 
 ```mermaid
-C4Context
-    title System Context Diagram for Lift Cash
-
-    Person(user, "Community Members", "Participants in democratic governance who earn crypto income through voting, surveys, and ratification")
-    Person(developer, "Developers", "Build and maintain the Lift Cash platform using local and production environments")
+flowchart TD
+    %% External Actors
+    User[Community Members<br/>Democratic governance participants<br/>Earn crypto through voting]
+    Developer[Developers<br/>Build and maintain platform<br/>Local and production environments]
     
-    System_Boundary(liftcash, "Lift Cash System") {
-        System(frontend, "Lift Cash Frontend", "React SPA providing governance participation interface with real-time phase updates")
-        System(community, "Community Backend", "Rust canister managing governance phases, user participation, and democratic workflows")
-        System(economy, "Economy Backend", "Rust canister handling token economics, rewards distribution, and financial records")
-    }
+    %% External Systems  
+    Identity[Internet Identity<br/>ICP authentication service<br/>Secure anonymous identification]
+    ICP[Internet Computer Protocol<br/>Blockchain infrastructure<br/>Canister runtime platform]
+    ICRC[ICRC-1 Ledger<br/>Token standard ledger<br/>Specific token minting operations]
     
-    System_Ext(identity, "Internet Identity", "ICP blockchain authentication service providing secure, anonymous user identification")
-    System_Ext(icp, "Internet Computer Protocol", "Blockchain infrastructure hosting canisters and providing decentralized computing platform")
-    System_Ext(icrc, "ICRC-1 Ledger", "Token standard ledger for specific token minting operations")
+    %% Lift Cash System Boundary
+    subgraph LiftCash [" Lift Cash System "]
+        Frontend[Lift Cash Frontend<br/>React SPA<br/>Governance participation interface]
+        Community[Community Backend<br/>Rust canister<br/>Governance phases and participation]
+        Economy[Economy Backend<br/>Rust canister<br/>Token economics and rewards]
+    end
     
-    Rel(user, frontend, "Participates in governance", "HTTPS")
-    Rel(developer, frontend, "Develops and deploys", "dfx CLI")
+    %% User Interactions
+    User -->|Participates in governance<br/>HTTPS| Frontend
+    Developer -->|Develops and deploys<br/>dfx CLI| Frontend
     
-    Rel(frontend, identity, "Authenticates users", "Internet Identity API")
-    Rel(frontend, community, "Submits governance responses", "Candid interface")
-    Rel(frontend, economy, "Manages tokens and rewards", "Candid interface")
+    %% Authentication
+    Frontend -->|Authenticates users<br/>Internet Identity API| Identity
     
-    Rel(community, economy, "Queries participation data", "Inter-canister calls")
-    Rel(economy, icrc, "Mints tokens", "ICRC-1 standard")
+    %% Frontend to Backend
+    Frontend -->|Submits governance responses<br/>Candid interface| Community
+    Frontend -->|Manages tokens and rewards<br/>Candid interface| Economy
     
-    Rel_Back(icp, liftcash, "Hosts and executes", "Canister runtime")
-    Rel(icp, identity, "Provides identity service", "ICP infrastructure")
-    Rel(icp, icrc, "Manages token ledgers", "ICP infrastructure")
+    %% Inter-canister Communication
+    Community -->|Queries participation data<br/>Inter-canister calls| Economy
+    Economy -->|Mints tokens<br/>ICRC-1 standard| ICRC
+    
+    %% Infrastructure Dependencies
+    ICP -->|Hosts and executes<br/>Canister runtime| LiftCash
+    ICP -->|Provides identity service<br/>ICP infrastructure| Identity
+    ICP -->|Manages token ledgers<br/>ICP infrastructure| ICRC
 ```
 
 #### **Component Diagram**
