@@ -378,63 +378,44 @@ stateDiagram-v2
         UpdateBalances --> [*] : Complete distribution
     }
     
-    RewardDistribution --> Survey : New weekly cycle<br/>resetParticipationTracking()
+    RewardDistribution --> Survey : New weekly cycle / resetParticipationTracking()
     
     state Survey {
         SurveyActive : Collecting responses
         SurveyActive --> SurveyActive : submitSurveyResponse()
-        note right of SurveyActive
-            Duration: 4 minutes
-            Participation: +20% claim
-            Actions: Record slider values,
-            choice selections
-        end note
+        %% Duration: 4 minutes, Participation: +20% claim
+        %% Actions: Record slider values and choice selections
     }
     
     state Vote {
         VoteActive : Democratic voting
         VoteActive --> VoteActive : submitVote()
-        note right of VoteActive
-            Duration: 4 minutes
-            Participation: +70% claim
-            Actions: Vote on survey results,
-            record preferences
-        end note
+        %% Duration: 4 minutes, Participation: +70% claim
+        %% Actions: Vote on survey results and record preferences
     }
     
     state Ratify {
         RatifyActive : Final confirmation
         RatifyActive --> RatifyActive : submitRatification()
-        note right of RatifyActive
-            Duration: 4 minutes
-            Participation: +10% claim
-            Actions: Approve/reject vote
-            outcomes
-        end note
+        %% Duration: 4 minutes, Participation: +10% claim
+        %% Actions: Approve or reject vote outcomes
     }
     
     state SurveyResults {
         DisplaySurvey : Show aggregated data
-        note right of DisplaySurvey
-            Duration: 2 minutes
-            Display: Averaged slider values,
-            majority choice selections
-        end note
+        %% Duration: 2 minutes
+        %% Display: Averaged slider values and majority choice selections
     }
     
     
     state RatifyResults {
         DisplayRatify : Show final results
-        note right of DisplayRatify
-            Duration: 2 minutes
-            Display: Ratification status,
-            approved proposals
-        end note
+        %% Duration: 2 minutes
+        %% Display: Ratification status and approved proposals
     }
     
-    note top of Survey : Phase transitions are timer-based<br/>and fully automated
-    
-    note bottom of RewardDistribution : Cross-canister communication:<br/>Economy ↔ Community Backend
+    %% Note: Phase transitions are timer-based and fully automated
+    %% Note: Cross-canister communication between Economy and Community Backend
 ```
 
 ### 3. Data and Integration Diagrams
