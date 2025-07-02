@@ -1,5 +1,16 @@
 # Lift Cash System Architecture
 
+## ⚠️ Prototype Phase Notice
+
+**This documentation describes the current prototype implementation of Lift Cash. Many values and timeframes are set for testing purposes and will be different in production:**
+
+- **Testing Timeframes**: Governance phases are currently 4-6 minutes each (instead of days/weeks) for rapid prototyping and testing
+- **Token Amounts**: Prize pool of 10,000 tokens is a prototype testing value, not final economic parameters  
+- **Economic Ratios**: 50/50 locked/unlocked split and 15% unlock rates are temporary testing values
+- **Participation Percentages**: Survey (20%), Vote (70%), Ratify (10%) claim percentages are prototype values
+
+**Production values will be determined through community governance and economic modeling.**
+
 ## High-Level Architectural Overview
 
 Lift Cash is a **self-governed, cooperative economic system** built on the Internet Computer Protocol (ICP) blockchain that enables participants to democratically manage fiscal policy and earn crypto income through governance participation.
@@ -16,14 +27,14 @@ The system follows a **multi-canister architecture** with clear separation of co
 
 #### 1. Community_Backend Canister
 - **Governance Lifecycle Management**: Orchestrates weekly governance cycles (Survey → Vote → Ratify → Results)
-- **Participation Tracking**: Records user engagement with claim percentages (Survey: 20%, Vote: 70%, Ratify: 10%)
+- **Participation Tracking**: Records user engagement with claim percentages (Survey: 20%, Vote: 70%, Ratify: 10% - prototype testing values)
 - **Democratic Decision-Making**: Aggregates community input using averages for sliders and majority votes for choices
-- **Phase Transition Logic**: Automated 4-minute phases with 2-minute result periods
+- **Phase Transition Logic**: Automated 4-minute phases with 2-minute result periods (prototype testing timeframes)
 
 #### 2. Economy_Backend Canister
 - **Financial Record Management**: Maintains user balances for PROMO, LIFT, and ICP tokens
-- **Token Economics**: Implements 50/50 locked/unlocked PROMO mechanism with 15% unlock per participation
-- **Reward Distribution**: Distributes from prize pool (10,000 tokens) based on governance participation
+- **Token Economics**: Implements 50/50 locked/unlocked PROMO mechanism with 15% unlock per participation (prototype testing ratios)
+- **Reward Distribution**: Distributes from prize pool (10,000 tokens - prototype testing amount) based on governance participation
 - **Cross-Canister Integration**: Calls Community_Backend to retrieve user claim percentages for reward calculations
 
 #### 3. React Frontend
@@ -42,6 +53,7 @@ The system follows a **multi-canister architecture** with clear separation of co
 #### Governance Workflow
 ```
 Weekly Cycle: Survey (4min) → SurveyResults (2min) → Vote (4min) → Ratify (4min) → RatifyResults (2min) → Reward Distribution → New Week
+(Prototype testing timeframes - production will use longer periods)
 ```
 
 #### Development Modes
@@ -51,7 +63,7 @@ Weekly Cycle: Survey (4min) → SurveyResults (2min) → Vote (4min) → Ratify 
 ### Token Economics Architecture
 
 #### Three-Token System
-- **PROMO**: Primary reward token with locking mechanism (50% locked initially, unlocks based on participation)
+- **PROMO**: Primary reward token with locking mechanism (50% locked initially, unlocks based on participation - prototype testing ratios)
 - **LIFT**: Governance and utility token for system operations
 - **ICP**: Native Internet Computer token for ecosystem integration
 
@@ -69,7 +81,7 @@ Weekly Cycle: Survey (4min) → SurveyResults (2min) → Vote (4min) → Ratify 
 - **ICP Token**: External blockchain token with standard ICP wallet integration
 
 #### Economic Mechanics
-- **Prize Pool Management**: 10,000 token pool with governance-determined weekly issuance percentage
+- **Prize Pool Management**: 10,000 token pool (prototype testing amount) with governance-determined weekly issuance percentage
 - **Participation Rewards**: Proportional distribution based on governance engagement levels
 - **Automated Distribution**: Cross-canister reward calculation and token transfer after each cycle
 
@@ -79,6 +91,8 @@ Weekly Cycle: Survey (4min) → SurveyResults (2min) → Vote (4min) → Ratify 
 - **Multi-Token Support**: PROMO, LIFT, and ICP token balances maintained within the canister state
 
 ## Prototype Phase Mermaid UML Diagrams
+
+**📋 Diagram Values Notice**: All numerical values, timeframes, and percentages shown in the diagrams below are prototype testing values only. Production values will be determined through community governance.
 
 Based on the system architecture analysis, the following Mermaid diagrams would be most effective for explaining the Lift Cash system to new developers and stakeholders:
 
@@ -552,7 +566,7 @@ erDiagram
     WEEKLY_SURVEY_RESULTS ||--|| WEEKLY_VOTE_RESULTS : "survey results feed voting"
     WEEKLY_VOTE_RESULTS ||--|| WEEKLY_RATIFICATION_COUNTS : "vote results feed ratification"
     
-    %% Notes for data flow:
+    %% Notes for data flow (prototype testing values):
     %% USER_CLAIM: Survey: +20 percent claim, Vote: +70 percent claim, Ratify: +10 percent claim, Max: 100 percent per week
     %% USER_RECORD: 50 percent locked, 50 percent unlocked PROMO, 15 percent unlock per participation
     %% PRIZE_POOL: 10,000 initial tokens, Weekly issuance percentage determined by governance, Distribution based on participation
@@ -1582,21 +1596,3 @@ flowchart TD
     class UserParticipation,UnlockCheck,TokenUse,PolicyAdjust decision
 ```
 
-### Diagram Priority Recommendation
-
-**Phase 1 (Essential)**:
-1. Component Diagram - System overview
-2. Flowchart: Governance Lifecycle - Core business process
-3. Sequence Diagram: Phase Transition Flow - Technical implementation
-
-**Phase 2 (Important)**:
-4. Entity Relationship Diagram - Data architecture
-5. Deployment Diagram - Infrastructure setup
-6. Flowchart: Authentication and User Journey - User experience
-
-**Phase 3 (Supplementary)**:
-7. State Diagram: Governance Phase States - Detailed technical behavior
-8. Sequence Diagram: Token Reward Distribution - Cross-canister integration
-9. Class Diagram: Frontend Component Structure - Frontend architecture
-
-This comprehensive diagram set would provide complete architectural documentation for developers, stakeholders, and new team members to understand both the technical implementation and business value of the Lift Cash system.
