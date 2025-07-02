@@ -163,30 +163,30 @@ C4Component
     Container_Ext(identity, "Internet Identity", "ICP Service", "Authentication and user identification")
     Container_Ext(icrc, "ICRC-1 Ledger", "ICP Service", "Token minting operations")
 
-    ' Frontend internal relationships
+    %% Frontend internal relationships
     Rel(ui, redux, "Updates state", "Redux actions")
     Rel(redux, actors, "Manages connections", "State updates")
     Rel(auth, identity, "Authenticates", "Internet Identity API")
     Rel(actors, auth, "Uses identity", "Principal access")
 
-    ' Frontend to Backend relationships
+    %% Frontend to Backend relationships
     Rel(ui, governance, "Phase queries", "Candid interface")
     Rel(ui, participation, "Submit responses", "Candid interface")
     Rel(ui, voting, "Cast votes", "Candid interface")
     Rel(ui, records, "Check balances", "Candid interface")
     Rel(ui, rewards, "Claim rewards", "Candid interface")
 
-    ' Community Backend internal relationships
+    %% Community Backend internal relationships
     Rel(governance, participation, "Updates tracking", "Internal calls")
     Rel(voting, results, "Stores outcomes", "Internal calls")
     Rel(governance, voting, "Phase control", "Internal calls")
 
-    ' Economy Backend internal relationships
+    %% Economy Backend internal relationships
     Rel(rewards, records, "Updates balances", "Internal calls")
     Rel(tokens, promo, "Manages pool", "Internal calls")
     Rel(rewards, promo, "Distributes tokens", "Internal calls")
 
-    ' Cross-canister relationships
+    %% Cross-canister relationships
     Rel(rewards, participation, "Gets claim %", "Inter-canister calls")
     Rel(tokens, icrc, "Token minting", "ICRC-1 standard")
 
@@ -1264,7 +1264,7 @@ flowchart TD
     %% Full Mode Configuration Path
     FullMode --> SetFullFlag[Set DEMO_MODE = false<br/>src/utils/useAuthClient.jsx<br/>Line 8]
     SetFullFlag --> CheckDfx{dfx CLI<br/>installed?}
-    CheckDfx -->|No| InstallDfx[Install dfx<br/>sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"]
+    CheckDfx -->|No| InstallDfx[Install dfx CLI<br/>Use DFINITY SDK installer<br/>Follow official installation guide]
     CheckDfx -->|Yes| StartReplica
     InstallDfx --> StartReplica
     
@@ -1498,22 +1498,22 @@ flowchart TD
 ```mermaid
 flowchart TD
     %% Prize Pool Initialization
-    Start([System Initialization]) --> PrizePool[Prize Pool Created<br/>Initial Balance: 10,000 PROMO<br/>Weekly Issuance: Governance-Determined %]
+    Start([System Initialization]) --> PrizePool[Prize Pool Created<br/>Initial Balance: 10,000 PROMO<br/>Weekly Issuance: Governance-Determined Percentage]
     
     %% Weekly Governance Cycle
     PrizePool --> WeekStart[New Governance Week Begins<br/>Reset participation tracking<br/>Calculate weekly issuance]
     
-    WeekStart --> WeeklyIssuance[Calculate Weekly Distribution<br/>Amount = Prize Pool × Governance-Voted %<br/>Issuance rate determined by community vote]
+    WeekStart --> WeeklyIssuance[Calculate Weekly Distribution<br/>Amount = Prize Pool * Governance-Voted Percentage<br/>Issuance rate determined by community vote]
     
     %% User Participation and Claim Accumulation
     WeeklyIssuance --> UserParticipation{User Participates<br/>in Governance?}
     
-    UserParticipation -->|Survey| SurveyReward[Survey Participation<br/>+20% claim percentage<br/>Record in Community Backend]
-    UserParticipation -->|Vote| VoteReward[Vote Participation<br/>+70% claim percentage<br/>Record in Community Backend]
-    UserParticipation -->|Ratify| RatifyReward[Ratify Participation<br/>+10% claim percentage<br/>Record in Community Backend]
-    UserParticipation -->|No Participation| NoReward[No Claim Percentage<br/>0% reward eligibility<br/>Wait for next week]
+    UserParticipation -->|Survey| SurveyReward[Survey Participation<br/>+20 percent claim<br/>Record in Community Backend]
+    UserParticipation -->|Vote| VoteReward[Vote Participation<br/>+70 percent claim<br/>Record in Community Backend]
+    UserParticipation -->|Ratify| RatifyReward[Ratify Participation<br/>+10 percent claim<br/>Record in Community Backend]
+    UserParticipation -->|No Participation| NoReward[No Claim Percentage<br/>0 percent reward eligibility<br/>Wait for next week]
     
-    SurveyReward --> ClaimCalc[Calculate Total Claim<br/>Max 100% per week<br/>Survey + Vote + Ratify]
+    SurveyReward --> ClaimCalc[Calculate Total Claim<br/>Max 100 percent per week<br/>Survey + Vote + Ratify]
     VoteReward --> ClaimCalc
     RatifyReward --> ClaimCalc
     
@@ -1521,7 +1521,7 @@ flowchart TD
     ClaimCalc --> WeekEnd[Week End Triggered<br/>Automated reward distribution<br/>Cross-canister communication]
     NoReward --> WeekEnd
     
-    WeekEnd --> IndividualReward[Calculate Individual Reward<br/>User Reward = Weekly Issuance × (Claim % / 100)<br/>Reward based on governance-determined issuance]
+    WeekEnd --> IndividualReward[Calculate Individual Reward<br/>User Reward = Weekly Issuance * (Claim Percentage / 100)<br/>Reward based on governance-determined issuance]
     
     %% Token Splitting Mechanism
     IndividualReward --> TokenSplit[Split Reward 50/50<br/>50% locked PROMO<br/>50% unlocked PROMO]
@@ -1534,10 +1534,10 @@ flowchart TD
     
     %% Participation-Based Unlocking
     LockedTokens --> UnlockCheck{Current Week<br/>Participation?}
-    UnlockCheck -->|Yes| UnlockCalc[Calculate Unlock Amount<br/>15% of locked balance<br/>Participation bonus]
+    UnlockCheck -->|Yes| UnlockCalc[Calculate Unlock Amount<br/>15 percent of locked balance<br/>Participation bonus]
     UnlockCheck -->|No| StayLocked[Locked Tokens Remain<br/>No unlock without participation<br/>Incentive to stay active]
     
-    UnlockCalc --> UnlockTransfer[Transfer 15% Locked → Unlocked<br/>Update user balances<br/>Economy Backend operation]
+    UnlockCalc --> UnlockTransfer[Transfer 15 percent Locked to Unlocked<br/>Update user balances<br/>Economy Backend operation]
     
     %% Token Utilization
     UnlockedTokens --> TokenUse{Token Usage<br/>Options}
